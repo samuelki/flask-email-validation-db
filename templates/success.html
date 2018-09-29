@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Email Validation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Email validation with DB</h1>
+        <a href="/">Go back</a>
+        <p class="success">The email address you entered ({{ session['email'] }}) is a VALID email address! Thank you!</li>
+        <h4>Email addresses entered:</h4>
+        <table>
+            <tbody>
+                {% for email in emails %}
+                <tr>
+                    <td>{{ email['email'] }}</td>
+                    <td>{{ email['created_at'] }}</td>
+                    <td>
+                        <form action="/{{ email['id'] }}/delete" method='post'>
+                            <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

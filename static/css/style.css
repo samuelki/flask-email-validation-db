@@ -1,0 +1,18 @@
+.container{
+    width: 900px;
+}
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}
+li{
+    list-style: none;
+}
+.flashes{
+    padding: 0;
+}
+td{
+    padding-right: 100px; 
+}
